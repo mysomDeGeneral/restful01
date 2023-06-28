@@ -12,7 +12,7 @@ class ToySerializer(serializers.ModelSerializer):
 
 
     def create(self, validated_data):
-        return Toy.objects.create(validated_data)
+        return Toy.objects.create(**validated_data)
     
     def update(self, instance, validated_data):
         instance.name = validated_data.get('name', instance.name)
@@ -23,3 +23,6 @@ class ToySerializer(serializers.ModelSerializer):
         instance.save()
         return instance
     
+    class Meta:
+        model = Toy
+        fields = ('pk', 'name', 'description', 'release_date', 'toy_category', 'was_included_in_home')

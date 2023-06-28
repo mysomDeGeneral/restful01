@@ -54,5 +54,5 @@ def toy_detail(request, pk):
         toy.delete()
         return HttpResponse(status=status.HTTP_204_NO_CONTENT)
     
-    
+
 
